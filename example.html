@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language Selector</title>
+  <style>
+    /* Container box style */
+    #container {
+      width: 200px;
+      margin: 20px; /* Added margin to position the box */
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+
+    #languageOptions {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    }
+    #languageOptions.visible {
+      opacity: 1;
+      max-height: 200px; /* Adjust height as needed */
+    }
+    #languageOptions ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    #languageOptions ul li {
+      margin-bottom: 10px;
+    }
+    #languageOptions ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      transition: color 0.3s ease-in-out;
+    }
+    #languageOptions ul li a:hover {
+      color: #4CAF50;
+    }
+
+    /* Button style */
+    #showOptionsBtn {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
+    #showOptionsBtn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <button id="showOptionsBtn">Category</button>
+    <div id="languageOptions">
+      <ul>
+        <li><a href="#" onclick="navigateToPage('english')">English</a></li>
+        <li><a href="#" onclick="navigateToPage('hindi')">Hindi</a></li>
+        <li><a href="#" onclick="navigateToPage('kannada')">Kannada</a></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    function navigateToPage(language) {
+      switch(language) {
+        case 'english':
+          window.location.href = 'english_page.html';
+          break;
+        case 'hindi':
+          window.location.href = 'hindi_page.html';
+          break;
+        case 'kannada':
+          window.location.href = 'kannada_page.html';
+          break;
+        default:
+          break;
+      }
+    }
+
+    document.getElementById("showOptionsBtn").addEventListener("click", function() {
+      var languageOptions = document.getElementById("languageOptions");
+      languageOptions.classList.toggle("visible");
+    });
+  </script>
+</body>
+</html>
